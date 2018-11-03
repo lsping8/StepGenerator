@@ -1,22 +1,17 @@
-var PiServo = require('pi-servo');
+const Gpio = require('pigpio').Gpio;
 
-// pass the GPIO number
-var sv1 = new PiServo(18); 
+const motor = new Gpio(18, {mode: Gpio.OUTPUT});
 
-sv1.open()
-    .then(function(){  
-        console.log('change to 0');
-        sv1.setDegree(0); // 0 - 180
-    })
-    .then(function(){  
-        console.log('change to 180');
-        sv1.setDegree(180); // 0 - 180
-    })
-    .then(function(){  
-        console.log('change to 0');
-        sv1.setDegree(0); // 0 - 180
-    })
-    .then(function(){  
-        console.log('change to 180');
-        sv1.setDegree(180); // 0 - 180
-    });
+let pulseWidth = 1000;
+let increment = 100;
+
+setInterval(() => {
+  motor.servoWrite(pulseWidth);
+
+  pulseWidth += increment;
+  if (pulseWidth >= 2000) {
+    increment = -100;
+  } else if (pulseWidth <= 1000) {
+    increment = 100;
+  }
+}, 1000);
