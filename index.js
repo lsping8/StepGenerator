@@ -1,17 +1,21 @@
-const Gpio = require('pigpio').Gpio;
+var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
+var LED = new Gpio(18, 'out'); //use GPIO pin 4, and specify that it is output
+var blinkInterval = setInterval(blinkLED, 100); //run the blinkLED function every 250ms
 
-const motor = new Gpio(18, {mode: Gpio.OUTPUT});
-
-let pulseWidth = 1000;
-let increment = 100;
-
-setInterval(() => {
-  motor.servoWrite(pulseWidth);
-
-  pulseWidth += increment;
-  if (pulseWidth >= 2000) {
-    increment = -100;
-  } else if (pulseWidth <= 1000) {
-    increment = 100;
+function blinkLED() { //function to start blinking
+  if (LED.readSync() === 0) { //check the pin state, if the state is 0 (or off)
+    console.log('change to 1');
+    LED.writeSync(1); //set pin state to 1 (turn LED on)
+  } else {
+    console.log('change to 0');
+    LED.writeSync(0); //set pin state to 0 (turn LED off)
   }
-}, 1000);
+}
+
+function endBlink() { //function to stop blinking
+    clearInterval(blinkInterval); // Stop blink intervals
+    LED.writeSync(0); // Turn LED off
+    LED.unexport(); // Unexport GPIO to free resources
+}
+  
+  setTimeout(endBlink, 5000); //stop blinking after 5 seconds
