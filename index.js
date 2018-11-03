@@ -2,7 +2,7 @@ const Gpio = require('pigpio').Gpio;
 
 const motor = new Gpio(18, {mode: Gpio.OUTPUT});
 
-let pulseWidth = 500;
+let pulseWidth = 1000;
 let rotateClockWise = true;
 
 setInterval(() => {
@@ -10,9 +10,9 @@ setInterval(() => {
 
     if (rotateClockWise) {
         rotateClockWise = false;
-        pulseWidth = 2500;
+        pulseWidth = 1500;
     } else {
         rotateClockWise = true;
-        pulseWidth = 500;
+        pulseWidth = 1000;
     }
 }, process.env.DELAY);
