@@ -1,15 +1,26 @@
 const Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
 const LED = new Gpio(18, 'out'); //use GPIO pin 4, and specify that it is output
-//const blinkInterval = setInterval(handleGpio, 20); //run the blinkLED function every 250ms
+const blinkInterval = setInterval(handleGpio, 20); //run the blinkLED function every 250ms
+let currentState;
+
+function handleGpio() {
+    if(currentState || currentState === 2){
+        initialiseServo();
+    } else {
+        turn180Degree();
+    }
+}
 
 function initialiseServo() {
+    currentState = 1;
     onGpio();
-    setTimeout(offGpio, 1);
+    setTimeout(offGpio, currentState);
 }
 
 function turn180Degree() {
+    currentState = 2;
     onGpio();
-    setTimeout(offGpio, 2);
+    setTimeout(offGpio, currentState);
 }
 
 function onGpio() {
@@ -32,5 +43,4 @@ function endBlink() { //function to stop blinking
     LED.unexport(); // Unexport GPIO to free resources
 }
 
-initialiseServo();
-setTimeout(turn180Degree, 20);
+setTimeout(endBlink, 5000);
