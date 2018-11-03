@@ -14,4 +14,4 @@ setInterval(() => {
   } else if (pulseWidth <= 1000) {
     increment = 1000;
   }
-}, 150);
+}, process.env.DELAY);
