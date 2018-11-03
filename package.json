@@ -1,0 +1,8 @@
+{
+  "name": "StepGenerator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:lsping8/StepGenerator.git",
+  "author": "Jason Loh <ksloh1991@gmail.com>",
+  "license": "MIT"
+}
