@@ -1,15 +1,24 @@
-var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
-var LED = new Gpio(18, 'out'); //use GPIO pin 4, and specify that it is output
-var blinkInterval = setInterval(blinkLED, 10); //run the blinkLED function every 250ms
+const Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
+const LED = new Gpio(18, 'out'); //use GPIO pin 4, and specify that it is output
+const blinkInterval = setInterval(handleGpio, 20); //run the blinkLED function every 250ms
 
-function blinkLED() { //function to start blinking
-  if (LED.readSync() === 0) { //check the pin state, if the state is 0 (or off)
-    console.log('change to 1');
-    LED.writeSync(1); //set pin state to 1 (turn LED on)
-  } else {
-    console.log('change to 0');
-    LED.writeSync(0); //set pin state to 0 (turn LED off)
-  }
+function handleGpio() { //function to start blinking
+    onGpio();
+    setTimeout(offGpio, process.env.PULSE);
+}
+
+function onGpio() {
+    if (LED.readSync() === 0) {
+        console.log('change to 1');
+        LED.writeSync(1); 
+    }
+}
+
+function offGpio() {
+    if (LED.readSync() === 1) { 
+        console.log('change to 0');
+        LED.writeSync(0); 
+    }
 }
 
 function endBlink() { //function to stop blinking
