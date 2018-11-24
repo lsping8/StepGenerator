@@ -8,11 +8,11 @@ let rotateClockWise = true;
 setInterval(() => {
     motor.servoWrite(process.env.CENTER || pulseWidth);
 
-    if (rotateClockWise) {
-        rotateClockWise = false;
-        pulseWidth = 1400;
-    } else {
-        rotateClockWise = true;
-        pulseWidth = 1000;
-    }
+    // if (rotateClockWise) {
+    //     rotateClockWise = false;
+    //     pulseWidth = 1400;
+    // } else {
+    //     rotateClockWise = true;
+    //     pulseWidth = 1000;
+    // }
 }, 350);
