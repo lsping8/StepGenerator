@@ -5,8 +5,6 @@ const board = new five.Board({
   });
 
 board.on("ready", () => {
-  const servo = new five.Servo({
-      pin: 18
-  });
+  const servo = new five.Servo('GPIO18');
   servo.center();
 })
