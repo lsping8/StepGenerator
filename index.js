@@ -6,6 +6,7 @@ let pulseWidth = 1000;
 let rotateClockWise = true;
 
 setInterval(() => {
+    console.log('process.env.CENTER', process.env.CENTER);
     motor.servoWrite(process.env.CENTER || 1500);
 
     // if (rotateClockWise) {
