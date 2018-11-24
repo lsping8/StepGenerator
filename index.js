@@ -15,4 +15,4 @@ setInterval(() => {
         rotateClockWise = true;
         pulseWidth = 1000;
     }
-}, process.env.DELAY);
+}, 350);

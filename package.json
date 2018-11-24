@@ -12,6 +12,6 @@
     "pigpio": "^1.1.4"
   },
   "scripts": {
-    "dev": "node index.js"
+    "dev": "sudo node index.js"
   }
 }
