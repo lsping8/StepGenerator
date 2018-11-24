@@ -5,7 +5,7 @@ const motor = new Gpio(18, {mode: Gpio.OUTPUT});
 let pulseWidth = 1000;
 let rotateClockWise = true;
 
-motor.servoWrite(1500);
+motor.servoWrite(process.env.CENTER || 1500);
 
 // setInterval(() => {
 //     motor.servoWrite(pulseWidth);
