@@ -7,14 +7,14 @@ let rotateClockWise = true;
 
 motor.servoWrite(process.env.CENTER || 1500);
 
-// setInterval(() => {
-//     motor.servoWrite(pulseWidth);
+setInterval(() => {
+    motor.servoWrite(process.env.CENTER || 1500);
 
-//     if (rotateClockWise) {
-//         rotateClockWise = false;
-//         pulseWidth = 1500;
-//     } else {
-//         rotateClockWise = true;
-//         pulseWidth = 1000;
-//     }
-// }, 350);
+    // if (rotateClockWise) {
+    //     rotateClockWise = false;
+    //     pulseWidth = 1500;
+    // } else {
+    //     rotateClockWise = true;
+    //     pulseWidth = 1000;
+    // }
+}, 350);
