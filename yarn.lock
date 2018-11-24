@@ -597,6 +597,14 @@ has-unicode@^2.0.0:
   resolved "https://registry.yarnpkg.com/has-unicode/-/has-unicode-2.0.1.tgz#e0e6fe6a28cf51138855e086d1691e771de2a8b9"
   integrity sha1-4Ob+aijPUROIVeCG0Wkedx3iqLk=
 
+i2c-bus@^3.1.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/i2c-bus/-/i2c-bus-3.2.0.tgz#e0d8db012837100a5aa671716365b63b10b83c37"
+  integrity sha512-0FMdVQyeFgz+bEkm8d1oUz0Yd3he8nS9BnzKCEILB+Y+I18amXu2Nn/KuZrQvaYcT/UIcz+r1dPNc8/wit8kmg==
+  dependencies:
+    bindings "^1.3.0"
+    nan "^2.10.0"
+
 info-symbol@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/info-symbol/-/info-symbol-0.1.0.tgz#27841d72867ddb4242cd612d79c10633881c6a78"
@@ -606,6 +614,11 @@ inherits@~2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
   integrity sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
+
+ini-builder@^1.0.3:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/ini-builder/-/ini-builder-1.1.1.tgz#4579a1365c73b1ac8ef88ff36f8a72c7bc228e23"
+  integrity sha512-75kk/PhKAzS/O1HnNcVKby4tgLAi/TlMyOjY23pzIAGMr2YcmqTG7T/Oe1ltHwICGZAH8eEFX77PcSv2AzByrA==
 
 ini@~1.3.0:
   version "1.3.5"
@@ -842,7 +855,7 @@ mute-stream@0.0.7:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
 
-nan@^2.11.1, nan@^2.6.2, nan@^2.9.2:
+nan@^2.10.0, nan@^2.11.1, nan@^2.6.2, nan@^2.9.2:
   version "2.11.1"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.11.1.tgz#90e22bccb8ca57ea4cd37cc83d3819b52eea6766"
 
@@ -926,7 +939,7 @@ pi-servo@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pi-servo/-/pi-servo-1.0.2.tgz#98d7775502195b3c251a936e38586b8cdec70b8f"
 
-pigpio@^1.1.4:
+pigpio@^1.0.0, pigpio@^1.1.4:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/pigpio/-/pigpio-1.1.4.tgz#81f009daa9f6d293c1aba551bd4a84ec2fdae0f0"
   integrity sha512-ptNt/6i/WSSXJcvZ0IdnAsAIvK+31/3OtiYTm0vRQGVxmByLQfbVqGzU669Adh7ZPs2wmQopIo0v//QWFZQjFg==
@@ -1099,6 +1112,94 @@ radio-symbol@^2.0.0:
     ansi-green "^0.1.1"
     is-windows "^1.0.1"
 
+raspi-board@^5.0.0, raspi-board@^5.0.1, raspi-board@^5.0.2, raspi-board@^5.2.0:
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/raspi-board/-/raspi-board-5.3.1.tgz#7677f1b8ddad654a4281622b9207d8a4c55a9765"
+  integrity sha512-33vhNpo6UdofJJOMFN9050gwy6bWC4T+Aiy5Ud7bPzAFYuSpOYiDnXpi1Rotlhtl+BlQvhN1xixmhdEJssbiCA==
+
+raspi-gpio@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/raspi-gpio/-/raspi-gpio-6.0.0.tgz#babf1c231e322bdd889e469c5f261801aee57117"
+  integrity sha512-LLtBG84jGfZlPkm5tUT0zMB+EDuNer1klboI9tzB14ILLYi4+FyYcM3fcT77OvE7loyFyd4JbNSrn0TLhx5F5w==
+  dependencies:
+    pigpio "^1.0.0"
+    raspi-board "^5.0.2"
+    raspi-peripheral "^2.0.1"
+
+raspi-i2c@^6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/raspi-i2c/-/raspi-i2c-6.1.2.tgz#facb1063933ca85388e7e6bb71adc1d61af05494"
+  integrity sha512-dhor3V/QQmffW+1q0U58tRIUQFgpdKbye2xqFLyHFAI9as0Mgn86YyHs8nh27IkFino4MV/pMu2R8/mL45XBVg==
+  dependencies:
+    i2c-bus "^3.1.0"
+    ini-builder "^1.0.3"
+    raspi-board "^5.0.1"
+    raspi-peripheral "^2.0.1"
+
+raspi-io-core@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/raspi-io-core/-/raspi-io-core-2.1.0.tgz#a499abee7f73082f66d6f2e2debd7a74d36cc689"
+  integrity sha512-PlORdF9pHpt6tmXfyZlfcwyxxlou216Sxh9zSTdztPYeOkNXr5TuchkMJOGLeGVOT9ZSv+5dYtf49mCADRWgMQ==
+
+raspi-io@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/raspi-io/-/raspi-io-9.0.0.tgz#0eb7188ae97838cfcfa7a52f5275dee73fe2e56e"
+  integrity sha512-GWy3mBskjx85o5zaNXXZfBFRUwjBkY0Kp2ZeVg3zOL6QX0SgnUN0wrRmmtt92TGCgd8ki079GEAmWSVZi/Djbg==
+  dependencies:
+    raspi "^5.0.2"
+    raspi-board "^5.2.0"
+    raspi-gpio "^6.0.0"
+    raspi-i2c "^6.1.2"
+    raspi-io-core "^2.1.0"
+    raspi-led "^2.0.0"
+    raspi-pwm "^6.0.0"
+    raspi-serial "^5.0.0"
+    raspi-soft-pwm "^5.0.0"
+
+raspi-led@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/raspi-led/-/raspi-led-2.0.0.tgz#3a8fa0fbde8f9c579bbdf870d3f5f44f2eb2e566"
+  integrity sha512-3vaL9Up98Y13lz+TUWvwGThZpedZYSsewvTuepFjk0XFku/Z/4EJZPmYBTcUK1BW63qRTRbRMwam8szxOAGO6Q==
+  dependencies:
+    raspi-peripheral "^2.0.1"
+
+raspi-peripheral@2.0.1, raspi-peripheral@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/raspi-peripheral/-/raspi-peripheral-2.0.1.tgz#f98032035960982aae911aed7052c6474e531cd9"
+  integrity sha512-SzCix2YJAVdRhK20aQIzaW/ERUr+Ybrr//iVCk0jcdA3/DjSL54ScM+qf3mOf1QVjWcukvxC1uvjMY94WCSpzg==
+  dependencies:
+    raspi-board "^5.0.0"
+
+raspi-pwm@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/raspi-pwm/-/raspi-pwm-6.0.0.tgz#e930cb8dbf5949684321fab6831fda4b1a99dd0b"
+  integrity sha512-d8fN7ZhREAPQSjgytia1DMgFWz+OeariLaESl6aE6lBM1F9LSQY9OU1ffvYBoggmTJ94kySQJt+BUT2c2efI0g==
+  dependencies:
+    pigpio "^1.0.0"
+    raspi-peripheral "^2.0.1"
+
+raspi-serial@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/raspi-serial/-/raspi-serial-5.0.0.tgz#766b9912641cc73896eccb017fe80972d0eef5c9"
+  integrity sha512-QjOyDLy5IlEYC1N/UG5hlFl0GUIc2E/7LnIUWz/AlBOL8Tgl5khO5sZyjFgwhf2aVQmxbb9pFGO4S4dAVqZYbg==
+  dependencies:
+    raspi-peripheral "^2.0.1"
+    serialport "^6.2.0"
+
+raspi-soft-pwm@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/raspi-soft-pwm/-/raspi-soft-pwm-5.0.0.tgz#4501d842d5d919ba19d7664e7e6ae45e39b159c2"
+  integrity sha512-5bW3ZA870uB9m69Vu/WwF/wr6XH/jeJtfNv/4dCdSuQSmEifMzAuzfCJ4l40sUW7P3LoffIQXywZxp89VEEDWg==
+  dependencies:
+    pigpio "^1.0.0"
+    raspi-board "^5.0.1"
+    raspi-peripheral "2.0.1"
+
+raspi@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/raspi/-/raspi-5.0.2.tgz#0c0019b0c996e6247704cc89cd736d34e5e7d4e7"
+  integrity sha512-rygTYAP8sGz29aeSMTA5p+j7CgwKC9qFLDRClkZHp2c/nrMhwjsLaxELCODR1w0f39c/kj/7DirYaYVEiwbMjQ==
+
 rc@^1.1.6:
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.8.tgz#cd924bf5200a075b83c188cd6b9e211b7fc0d3ed"
@@ -1157,7 +1258,7 @@ semver@^5.4.1:
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.6.0.tgz#7e74256fbaa49c75aa7c7a205cc22799cac80004"
   integrity sha512-RS9R6R35NYgQn++fkDWaOmqGoj4Ek9gGs+DPxNUZKuwE183xjJroKvyo1IzVFeXvUrvmALy6FWD5xrdJT25gMg==
 
-serialport@^6.0.4:
+serialport@^6.0.4, serialport@^6.2.0:
   version "6.2.2"
   resolved "https://registry.yarnpkg.com/serialport/-/serialport-6.2.2.tgz#75532312571578b060eb29cbdf8f2f3e8ba03063"
   integrity sha512-BQqTR06ZXKwKB6rUjeANm3aIZo0rqNbQsrQX5zKEDcNY4rxiu5dvdcfIOaAGuZkhW7jAKJsgKC5TjeURtLVuOQ==
