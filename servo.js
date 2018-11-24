@@ -5,6 +5,8 @@ const board = new five.Board({
   });
 
 board.on("ready", () => {
-  const servo = new five.Servo(18);
+  const servo = new five.Servo({
+      pin: 18
+  });
   servo.center();
 })
