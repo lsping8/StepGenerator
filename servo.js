@@ -7,4 +7,8 @@ const board = new five.Board({
 board.on("ready", () => {
   const servo = new five.Servo('GPIO18');
   servo.center();
+  while(true) {
+    servo.to(25);
+    servo.to(-25);
+  };
 })
